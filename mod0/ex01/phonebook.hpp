@@ -5,14 +5,25 @@
 #include <iostream>
 #include <iomanip>
 
-class Contact
-{
+class Contact{
 public:
+	void set_fn(std::string s);
+	void set_ln(std::string s);
+	void set_nn(std::string s);
+	void set_pn(std::string s);
+	void set_ds(std::string s);
+	std::string get_fn();
+	std::string get_ln();
+	std::string get_nn();
+	std::string get_pn();
+	std::string get_ds();
+private:
 	std::string f_name;
 	std::string l_name;
 	std::string nickname;
-	long num;
+	std::string num;
 	std::string secret;
+
 };
 
 class PhoneBook{
@@ -25,8 +36,6 @@ public:
 	explicit PhoneBook(int i);
 	void add_cont();
 	void display_cont();
-	void search_cont();
 };
-
 
 #endif //C__MOD_PHONEBOOK_HPP

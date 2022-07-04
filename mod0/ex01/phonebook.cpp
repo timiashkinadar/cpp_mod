@@ -1,54 +1,89 @@
-
 #include "phonebook.hpp"
 
-	void PhoneBook::add_cont()
-	{
-		std::cout << "Write the first name" << std::endl;
-		std::cin >> contacts[i].f_name ;
-		std::cout << "Write the last name" << std::endl;
-		std::cin >> contacts[i].l_name;
-		std::cout << "Write the nickname" << std::endl;
-		std::cin >> contacts[i].nickname;
-		std::cout << "Write the phone number" << std::endl;
-		std::cin >> contacts[i].num;
-		std::cout << "Write the darkest secret" << std::endl;
-		std::cin >> contacts[i].secret;
-		i++;
-		if (i == 8)
-			i = 0;
-	}
-	void PhoneBook::display_cont()
-	{
-		int j = 0;
-		while(j < 8)
-		{
-			std::cout << std::setw(10) << j << "|";
-			if ( contacts[j].f_name.length() <= 10)
-				std::cout << std::setw(10) << contacts[j].f_name << "|";
-			else
-				std::cout << contacts[j].f_name.substr(0, 9) << "." << "|";
-			if ( contacts[j].l_name.length() <= 10)
-				std::cout << std::setw(10) << contacts[j].l_name << "|";
-			else
-				std::cout << contacts[j].l_name.substr(0, 9) << "." << "|";
-			if ( contacts[j].nickname.length() <= 10)
-				std::cout << std::setw(10) << contacts[j].nickname << std::endl;
-			else
-				std::cout << contacts[j].nickname.substr(0, 9) << "." << "|";
-			j++;
-		}
-	}
-	void PhoneBook::search_cont()
-	{
-//		display_cont();
-	}
+void PhoneBook::add_cont(){
+	std::string fn, ln, nn, pn, sec;
+	std::cout << "Write the first name" << std::endl;
+	std::cin >> fn;
+	contacts[i].set_fn(fn);
+	std::cout << "Write the last name" << std::endl;
+	std::cin >> ln;
+	contacts[i].set_ln(ln);
+	std::cout << "Write the nickname" << std::endl;
+	std::cin >> nn;
+	contacts[i].set_nn(nn);
+	std::cout << "Write the phone number" << std::endl;
+	std::cin >> pn;
+	contacts[i].set_pn(pn);
+	std::cout << "Write the darkest secret" << std::endl;
+	std::cin >> sec;
+	contacts[i].set_ds(sec);
+	i++;
+	if (i == 8)
+		i = 0;
+}
 
-	PhoneBook::PhoneBook(int i) {
-		PhoneBook::i = i;
+void PhoneBook::display_cont(){
+	std::string fn, ln, nn;
+	int j = 0;
+	while(j < 8)
+	{
+		std::cout << std::setw(10) << j << "|";
+		if ( contacts[j].get_fn().length() <= 10)
+			std::cout << std::setw(10) << contacts[j].get_fn() << "|";
+		else
+			std::cout << contacts[j].get_fn().substr(0, 9) << "." << "|";
+		if ( contacts[j].get_ln().length() <= 10)
+			std::cout << std::setw(10) << contacts[j].get_ln() << "|";
+		else
+			std::cout << contacts[j].get_ln().substr(0, 9) << "." << "|";
+		if ( contacts[j].get_nn().length() <= 10)
+			std::cout << std::setw(10) << contacts[j].get_nn() << std::endl;
+		else
+			std::cout << contacts[j].get_nn().substr(0, 9) << "." << std::endl;
+		j++;
 	}
+}
 
-//	int show_index()
-//	{
-//		return i;
-//	}
-//};
+PhoneBook::PhoneBook(int i){
+	PhoneBook::i = i;
+}
+
+void Contact::set_fn(std::string s){
+	f_name = s;
+}
+
+void Contact::set_ln(std::string s){
+	l_name = s;
+}
+
+void Contact::set_nn(std::string s){
+	nickname = s;
+}
+
+void Contact::set_pn(std::string s){
+	num = s;
+}
+
+void Contact::set_ds(std::string s){
+	secret = s;
+}
+
+std::string Contact::get_fn(){
+	return f_name;
+}
+
+std::string Contact::get_ln(){
+	return l_name;
+}
+
+std::string Contact::get_nn(){
+	return nickname;
+}
+
+std::string Contact::get_pn(){
+	return num;
+}
+
+std::string Contact::get_ds(){
+	return secret;
+}

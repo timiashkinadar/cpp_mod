@@ -12,11 +12,14 @@ int main()
 		if (command == "ADD")
 			book.add_cont();
 		else if (command == "SEARCH")
-			book.search_cont();
+		{
+			std::cout << "     index|first name| last name| nickname" << std::endl;
+			book.display_cont();
+		}
 		else if (command == "EXIT")
 			break;
-//		else if (command == "INDEX")
-//			std::cout << book.show_index() << std::endl;
+		else
+			std::cout << "Сommand doesn't exist. Try again!" <<  std::endl;
 	}
 }
 

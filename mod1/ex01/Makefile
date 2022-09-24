@@ -1,10 +1,10 @@
-NAME	= phonebook
+NAME	= zombieHorde
 
-SRCS	= main.cpp phonebook.cpp
+SRCS	= main.cpp Zombie.cpp zombieHorde.cpp
 
-OBJS	= ${SRCS:%.c=%.o}
+OBJS	= ${SRCS:.cpp=.o}
 
-HEADER	= phonebook.hpp
+HEADER	= Zombie.h
 
 CC		= g++
 
@@ -14,11 +14,11 @@ CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 .PHONY:	all clean fclean re
 
-.c.o:		${HEADER}
-				${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
-
 ${NAME}:	${OBJS}
 				@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
+
+.cpp.o:		${HEADER}
+				${CC} ${CFLAGS} -c $< -o $@
 
 all:		${NAME}
 

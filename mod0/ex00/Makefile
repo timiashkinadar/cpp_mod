@@ -2,18 +2,18 @@ NAME	= megaphone
 
 SRCS	= megaphone.cpp
 
-OBJS	= ${SRCS:%.c=%.o}
+OBJS	= ${SRCS:%.cpp=%.o}
 
-CC		= g++
+CC		= c++
 
-RM		= rm -f
+RM		= rm -rf
 
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 .PHONY:	all clean fclean re
 
-.c.o:
-				${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+.cpp.o:
+				${CC} ${CFLAGS} -c $< -o $@
 
 ${NAME}:	${OBJS}
 				@${CC} ${CFLAGS} ${OBJS} -o ${NAME}

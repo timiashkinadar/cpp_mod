@@ -1,4 +1,4 @@
-#include "phonebook.hpp"
+#include "Phonebook.h"
 
 int main()
 {
@@ -7,7 +7,7 @@ int main()
 	std::string command;
 	while (1)
 	{
-		std::cout << "Write the command:" << std::endl;
+		std::cout << "Write the command[ADD, SEARCH, EXIT]:" << std::endl;
 		std::cin >> command;
 		if (command == "ADD")
 			book.add_cont();

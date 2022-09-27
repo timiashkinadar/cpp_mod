@@ -1,10 +1,10 @@
 NAME	= phonebook
 
-SRCS	= main.cpp phonebook.cpp
+SRCS	= main.cpp Phonebook.cpp Contact.cpp
 
-OBJS	= ${SRCS:%.c=%.o}
+OBJS	= ${SRCS:%.cpp=%.o}
 
-HEADER	= phonebook.hpp
+HEADER	= Phonebook.h Contact.h
 
 CC		= g++
 
@@ -14,8 +14,8 @@ CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 .PHONY:	all clean fclean re
 
-.c.o:		${HEADER}
-				${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+.cpp.o:		${HEADER}
+				${CC} ${CFLAGS} -c $< -o $@
 
 ${NAME}:	${OBJS}
 				@${CC} ${CFLAGS} ${OBJS} -o ${NAME}

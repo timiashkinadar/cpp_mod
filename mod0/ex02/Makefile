@@ -1,6 +1,6 @@
 NAME	= the_job_of_your_dreams
 
-SRCS	= main.cpp Account.cpp tests.cpp
+SRCS	= Account.cpp tests.cpp
 
 OBJS	= ${SRCS:%.cpp=%.o}
 

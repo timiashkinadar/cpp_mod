@@ -1,10 +1,8 @@
-NAME	= zombieHorde
+NAME	= sed_is_for_losers
 
-SRCS	= main.cpp Zombie.cpp zombieHorde.cpp
+SRCS	= main.cpp
 
 OBJS	= ${SRCS:.cpp=.o}
-
-HEADER	= Zombie.h
 
 CC		= g++
 
@@ -17,7 +15,7 @@ CFLAGS	= -Wall -Wextra -Werror -std=c++98
 ${NAME}:	${OBJS}
 				@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 
-%.o:%.cpp		${HEADER}
+.cpp.o:
 				@${CC} ${CFLAGS} -c $< -o $@
 
 all:		${NAME}

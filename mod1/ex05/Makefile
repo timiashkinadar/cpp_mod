@@ -1,10 +1,10 @@
-NAME	= zombieHorde
+NAME	= harl
 
-SRCS	= main.cpp Zombie.cpp zombieHorde.cpp
+SRCS	= main.cpp Harl.cpp
 
 OBJS	= ${SRCS:.cpp=.o}
 
-HEADER	= Zombie.h
+HEADER	= Harl.h
 
 CC		= g++
 
